@@ -43,7 +43,7 @@ jobs:
         run: echo "Deploy complet to prod"
       - name: echo preprod
         if: ${{inputs.env_deploy == 'preprod'}}
-        run: echo "Deploy complet to preprod"
+        run: echo "Deploy complet to preprod" && exit 1
       - name: echo dev
         if: ${{inputs.env_deploy == 'dev'}}
         run: echo "Deploy complet to dev"
