@@ -39,13 +39,13 @@ jobs:
     steps:
       - run: echo "Deploy complet"
       - name: echo prod
-        if: ${{github.ref == 'refs/heads/main'}}
+        if: ${{inputs.env_deploy == 'prod'}}
         run: echo "Deploy complet to prod"
       - name: echo preprod
-        if: ${{github.ref == 'refs/heads/preprod'}}
+        if: ${{inputs.env_deploy == 'preprod'}}
         run: echo "Deploy complet to preprod"
       - name: echo dev
-        if: ${{github.ref == 'refs/heads/dev'}}
+        if: ${{inputs.env_deploy == 'dev'}}
         run: echo "Deploy complet to dev"
       - name: checkout master
         if: ${{github.ref == 'refs/heads/main'}}
