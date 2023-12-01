@@ -10,21 +10,21 @@ on:
 jobs:
   deploy-dev:
     runs-on: ubuntu-latest
-    if: ${{github.event.inputs.env_deploy == 'dev'}}
+    if: ${{inputs.env_deploy == 'dev'}}:
     steps:
-      - run : echo "[D] Deploying to ${{github.event.inputs.env_deploy}} environment"
+      - run : echo "[D] Deploying to ${{inputs.env_deploy}} environment"
 
   deploy-preprod:
     runs-on: ubuntu-latest
-    if: ${{github.event.inputs.env_deploy == 'preprod'}}
+    if: ${{inputs.env_deploy == 'preprod'}}:
     steps:
-      - run : echo "[PP] Deploying to ${{github.event.inputs.env_deploy}} environment"
+      - run : echo "[PP] Deploying to ${{inputs.env_deploy}} environment"
 
   deploy-prod:
     runs-on: ubuntu-latest
-    if: ${{github.event.inputs.env_deploy == 'prod'}}
+    if: ${{inputs.env_deploy == 'prod'}}:
     steps:
-      - run : echo "[P] Deploying to ${{github.event.inputs.env_deploy}} environment"
+      - run : echo "[P] Deploying to ${{inputs.env_deploy}} environment"
 
   master_branch:
     runs-on: ubuntu-latest
