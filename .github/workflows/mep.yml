@@ -28,6 +28,6 @@ jobs:
 
   master_branch:
     runs-on: ubuntu-latest
-    if: ${{github.ref == 'refs/heads/master'}}
+    if: ${{github.ref == 'refs/heads/main'}}
     steps:
       - run : echo "Deploying to master branch"
