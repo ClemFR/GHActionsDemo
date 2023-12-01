@@ -1,0 +1,33 @@
+name: MEP-CD
+on:
+  workflow_dispatch:
+    inputs:
+      env_deploy:
+        description: 'Environment to deploy'
+        required: true
+        default: 'dev'
+
+jobs:
+  deploy-dev:
+    runs-on: ubuntu-latest
+    if: ${{github.event.inputs.env_deploy == 'dev'}}:
+    steps:
+      - run : echo "[D] Deploying to ${{github.event.inputs.env_deploy}} environment"
+
+  deploy-preprod:
+    runs-on: ubuntu-latest
+    if: ${{github.event.inputs.env_deploy == 'preprod'}}:
+    steps:
+      - run : echo "[PP] Deploying to ${{github.event.inputs.env_deploy}} environment"
+
+  deploy-prod:
+    runs-on: ubuntu-latest
+    if: ${{github.event.inputs.env_deploy == 'prod'}}:
+    steps:
+      - run : echo "[P] Deploying to ${{github.event.inputs.env_deploy}} environment"
+
+  master_branch:
+    runs-on: ubuntu-latest
+    if: ${{github.ref == 'refs/heads/master'}}
+    steps:
+      - run : echo "Deploying to master branch"
