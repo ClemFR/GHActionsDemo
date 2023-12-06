@@ -1,0 +1,13 @@
+name: Test secrets / variables
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Application buildee" > app.txt
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - run: ls && cat app.txt
