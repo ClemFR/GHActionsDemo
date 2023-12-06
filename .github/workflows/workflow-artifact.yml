@@ -1,5 +1,5 @@
 name: Test secrets / variables
-on: push
+on: [merge_group]
 jobs:
   build:
     runs-on: ubuntu-latest
