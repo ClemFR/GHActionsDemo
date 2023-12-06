@@ -1,1 +1,13 @@
-
+name: Test cache
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: mkdir dep && echo "Application buildee" > dep/app.txt
+      - name: Cache
+        uses: actions/cache@v3.3.2
+        with:
+          path: dep/
+          key: mon_cache
+        
